@@ -4,7 +4,7 @@ import styles from "./index.css"
 
 export default () => (
   <header className="header">
-    <h1 className="header__label theme-grey">A T A</h1>
-    <p className="header__sub-label theme-black"> are they alike?</p>
+    <h1 className="header__label">A T A</h1>
+    <p className="header__sub-label"> are they alike?</p>
   </header>
 )

@@ -1,7 +1,8 @@
 :root {
-  --theme-black: #272727;
-  --theme-yellow: #FED766;
-  --theme-blue: #00CECB;
-  --theme-grey: #696773;
-  --theme-white: #EFF1F3;
+  --header-color-desktop: #FFF;
+  --theme-yellow: #FFD166;
+  --theme-green: #06D6A0;
+  --theme-red: #EF476F;
+  --theme-dark-blue: #26547C;
+  --theme-white: #FFFCF9;
 }

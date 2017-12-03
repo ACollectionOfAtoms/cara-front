@@ -2,17 +2,17 @@
   padding: 0 1em;
   display: flex;
   align-items: center;
-  background-color: var(--theme-black);
-  color: var(--theme-white);
+  background-color: var(--header-color-desktop);
+  color: var(--theme-black);
 }
 
 .header__label {
   padding: 0.2em;
-  border: 1px solid var(--theme-yellow);
+  border: 1px solid var(--theme-green);
   margin: 0.5em;
 }
 
 .header__sub-label {
-  color: var(--theme-blue);
-  letter-spacing: 0.1em;
+  color: var(--theme-red);
+  letter-spacing: 0.2em;
 }

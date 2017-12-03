@@ -1,6 +1,5 @@
 import React from 'react'
-import colors from '../../styles/colors.css'
-import styles from "./index.css"
+import "./index.css"
 
 export default () => (
   <header className="header">

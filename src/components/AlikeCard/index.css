@@ -1,0 +1,19 @@
+.alike-card {
+  height: 10em;
+  width: 20em;
+  background-color: black;
+  overflow: hidden;
+}
+
+.alike-card-figure {
+  margin: 0;
+}
+
+.alike-card-video {
+  width: 100%;
+  margin: auto;
+}
+
+.alike-card-video::-webkit-media-controls {
+  display: none !important;
+}

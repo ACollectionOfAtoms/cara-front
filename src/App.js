@@ -14,19 +14,21 @@ import './App.css';
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <Header/>
-        <Navbar/>
-        <main>
-          <Router>
-            <div>
-                <Route exact path="/" component={Home}/>
-                <Route path="/compare-faces" component={CompareFaces}/>
-            </div>
-          </Router>
-        </main>
-        <Sidebar/>
-        <Footer/>
+      <div>
+        <Router>
+          <div className="App">
+            <Header/>
+            <Navbar/>
+            <main>
+                <div>
+                    <Route exact path="/" component={Home}/>
+                    <Route path="/compare-faces" component={CompareFaces}/>
+                </div>
+            </main>
+            <Sidebar/>
+            <Footer/>
+          </div>
+        </Router>
       </div>
     );
   }

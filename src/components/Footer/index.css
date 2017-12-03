@@ -1,0 +1,12 @@
+.footer {
+  display: flex;
+  justify-content: center;
+  padding: 1em;
+  background-color: var(--theme-dark-blue);
+  color: var(--theme-white)
+}
+
+.you-text,
+.url-text {
+  color: var(--theme-red);
+}

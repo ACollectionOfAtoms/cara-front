@@ -1,0 +1,6 @@
+:root {
+  --mobile-screen-size: 690px;
+  --tablet-screen-size: 995px;
+  --desktop-screen-size: 1440px;
+  --mobile: "only screen and (max-width:#{--var(--mobile-screen-size)})";
+}

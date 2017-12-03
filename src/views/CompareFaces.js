@@ -1,5 +1,5 @@
 import React from 'react';
-import Face from '../components/Face'
+import FaceDrop from '../components/FaceDrop'
 
 export default class CompareContainer extends React.Component {
   constructor(props) {
@@ -33,11 +33,11 @@ export default class CompareContainer extends React.Component {
   render() {
     return (
       <div>
-        <Face
+        <FaceDrop
           handleFaceChange={this.handleFaceChange}
           filename='uploadfile1'
           title={'upload face 1'}/>
-        <Face
+        <FaceDrop
           handleFaceChange={this.handleFaceChange}
           filename='uploadfile2'
           title={'upload face 2'}/>

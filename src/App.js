@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import {
   BrowserRouter as Router,
-  Route,
-  Link
+  Route
 } from 'react-router-dom'
 import Home from './views/Home'
 import Header from './components/Header'
@@ -16,8 +15,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header />
-        <Navbar />
+        <Header/>
+        <Navbar/>
         <main>
           <Router>
             <div>
@@ -26,8 +25,8 @@ class App extends Component {
             </div>
           </Router>
         </main>
-        <Sidebar />
-        <Footer />
+        <Sidebar/>
+        <Footer/>
       </div>
     );
   }

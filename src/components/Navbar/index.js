@@ -1,9 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import "./index.css"
 
 export default () => (
-  <nav>
-    <ul>
+  <nav className="nav-bar">
+    <ul className="nav-list">
       <li>
         <Link to="/"> Home </Link>
       </li>

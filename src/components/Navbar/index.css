@@ -1,0 +1,35 @@
+.nav-bar {
+  background-color: var(--theme-green);
+  font-size: 1.3em;
+}
+
+li a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.nav-list li {
+  margin: 10px;
+  text-align: right;
+  color: var(--theme-white);
+}
+
+.nav-list li:hover {
+  color: var(--theme-dark-blue);
+}
+
+.nav-list {
+  display: flex;
+  flex-flow: column;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media  only screen and (max-width: 690px) {
+  .nav-list {
+    flex-flow: row;
+    justify-items: center;
+    justify-content: flex-start;
+  }
+}

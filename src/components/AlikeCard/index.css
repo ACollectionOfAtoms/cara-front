@@ -3,9 +3,22 @@
   width: 20em;
   background-color: black;
   overflow: hidden;
+  position: relative;
 }
 
 .alike-card-figure {
+  margin: 0;
+}
+
+.alike-card-caption {
+  position: absolute;
+  top: 0;
+  font-size: 1.5em;
+  color: var(--theme-white);
+  padding: 1em;
+}
+
+.alike-card-caption p {
   margin: 0;
 }
 
@@ -16,4 +29,20 @@
 
 .alike-card-video::-webkit-media-controls {
   display: none !important;
+}
+
+.alike-card:hover {
+  animation: switch-box-shadow 1s linear infinite;
+}
+
+@keyframes switch-box-shadow {
+  0% {
+    box-shadow: -9px 8px 0px 2px var(--theme-red);
+  }
+  50% {
+    box-shadow: -9px 8px 0px 2px var(--theme-yellow);
+  }
+  100% {
+    box-shadow: -9px 8px 0px 2px var(--theme-red);
+  }
 }

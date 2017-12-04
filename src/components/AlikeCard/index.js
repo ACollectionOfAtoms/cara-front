@@ -25,22 +25,29 @@ class AlikeCard extends React.Component {
     }
   }
 
-  render = () => (
-    <div className="alike-card">
-      <figure 
-        className="alike-card-figure"
-        onMouseEnter={this.handleHover}
+  render() {
+    const captionArray = this.props.caption.split(" ")
+
+    return (
+      <div 
         onMouseLeave={this.handleHover}
-      >
-        <video 
-          ref={(video) => {this.video = video}}
-          className="alike-card-video" 
-          src={this.props.videoSrc}></video>
-      </figure>
-      <figcaption className="alike-card-caption">
-      </figcaption>
-    </div>
-  )
+        onMouseEnter={this.handleHover}
+        className="alike-card">
+        <figure className="alike-card-figure">
+          <video 
+            loop
+            ref={(video) => {this.video = video}}
+            className="alike-card-video" 
+            src={this.props.videoSrc}></video>
+        </figure>
+        <figcaption className="alike-card-caption">
+          {captionArray.map((word, i) => (
+            <p key={i} className="caption-word"> {word} </p>
+          ))}
+        </figcaption>
+      </div>
+    )
+  }
 }
 
 AlikeCard.propTypes = propTypes

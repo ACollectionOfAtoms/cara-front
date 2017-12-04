@@ -6,7 +6,8 @@ import "./index.css"
 export default () => (
   <div className="home-view">
     <Link to='compare-faces'>
-      <AlikeCard 
+      <AlikeCard
+        caption="compare two faces"
         videoSrc="/faces.mp4"
         />
     </Link>

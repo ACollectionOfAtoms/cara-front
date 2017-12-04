@@ -35,7 +35,7 @@ footer {
   grid-area: footer;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 690px) {
   .App {
     grid-template-areas:
       "header"
@@ -47,7 +47,7 @@ footer {
     grid-template-columns: 1fr;
     grid-template-rows:
       auto /* Header */
-      minmax(75px, auto) /* Nav */
+      minmax(50px, auto) /* Nav */
       1fr /* Content */
       minmax(75px, auto) /* Sidebar */
       auto; /* Footer */

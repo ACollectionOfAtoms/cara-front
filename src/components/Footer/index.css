@@ -1,6 +1,7 @@
 .footer {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+  align-items: center;
   padding: 1em;
   background-color: var(--theme-dark-blue);
   color: var(--theme-white)
@@ -8,5 +9,7 @@
 
 .you-text,
 .url-text {
+  flex: 1 0 auto;
+  display: block;
   color: var(--theme-red);
 }

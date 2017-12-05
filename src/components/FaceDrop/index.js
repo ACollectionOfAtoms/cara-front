@@ -1,21 +1,17 @@
 import React from 'react';
+import Dropzone from 'react-dropzone';
+import "./index.css";
 
 export default function Face(props) {
-  const figureStyle = {
-    backgroundImage:`url(${props.faceImage})` 
-  }
+  const bgStyle = { backgroundImage: `url(${props.previewURL})` }
   return (
-    <div>
-      <h2>{props.title}</h2>
-      <input 
-        type="file" 
-        onChange={props.handleFaceChange}
-        name={props.filename} />
-      <figure
-        style={figureStyle}>
-        <div className='face'></div>
-        <figcaption>face</figcaption>
-      </figure>
-    </div>
+    <Dropzone
+      className="face-drop"
+      style={bgStyle}
+      maxSize={32 << 20}
+      multiple={false}
+      onDrop={(...args) => props.handleFaceChange.call(null, ...args, props.id)}
+    >
+    </Dropzone>
   );
 }

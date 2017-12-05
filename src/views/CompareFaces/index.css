@@ -1,0 +1,5 @@
+.face-compare-zone {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}

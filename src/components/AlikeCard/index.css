@@ -37,12 +37,12 @@
 
 @keyframes switch-box-shadow {
   0% {
-    box-shadow: -9px 8px 0px 2px var(--theme-red);
+    box-shadow: -10px 8px 0px 2px var(--theme-red);
   }
   50% {
-    box-shadow: -9px 8px 0px 2px var(--theme-yellow);
+    box-shadow: -10px 8px 0px 2px var(--theme-yellow);
   }
   100% {
-    box-shadow: -9px 8px 0px 2px var(--theme-red);
+    box-shadow: -10px 8px 0px 2px var(--theme-red);
   }
 }

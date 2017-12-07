@@ -1,5 +1,87 @@
+.page-title {
+  text-align: center;
+  text-transform: capitalize;
+  color: var(--theme-dark-blue);
+  text-shadow: 0.1em 0.3em var(--theme-red);
+}
+
+.face-compare-container_fetching {
+  animation: flashBG 5s linear infinite;
+}
+
+@keyframes flashBG {
+  0% {
+    background-color: var(--theme-white);
+  }
+  25% {
+    background-color: var(--theme-dark-blue);
+  }
+  75% {
+    background-color: var(--theme-red);
+  }
+  100% {
+    background-color: var(--theme-white);
+  }
+}
+
 .face-compare-zone {
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-between;
+  width: 100%;
+}
+
+.face-drop-one,
+.face-drop-two {
+  flex: 1 0 auto;
+  display: flex;
+  padding: 1em;
+}
+
+.face-drop-one {
+  justify-content: flex-end;
+}
+
+.face-drop-two {
+  justify-content: flex-start;
+}
+
+.red-emph {
+  color: var(--theme-red);
+}
+
+.green-emph {
+  color: var(--theme-green);
+}
+
+.compare-control {
+  flex: 2 0 100%;
+  display: flex;
+  justify-content: center;
+  padding: 1em 0;
+}
+
+.compare-control button {
+  background-color: var(--theme-dark-blue);
+  color: var(--theme-yellow);
+  border-radius: 0;
+  outline: none;
+  font-size: 2em;
+  border: none;
+}
+
+.compare-control button:hover {
+  cursor: pointer;
+  animation: switch-box-shadow 1s linear infinite;
+}
+
+@keyframes switch-box-shadow {
+  0% {
+    box-shadow: -0.2em 0.1em 0px 0.07em var(--theme-red);
+  }
+  50% {
+    box-shadow: -0.2em 0.1em 0px 0.07em var(--theme-yellow);
+  }
+  100% {
+    box-shadow: -0.2em 0.1em 0px 0.07em var(--theme-red);
+  }
 }

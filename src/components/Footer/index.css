@@ -4,7 +4,8 @@
   align-items: center;
   padding: 1em;
   background-color: var(--theme-dark-blue);
-  color: var(--theme-white)
+  color: var(--theme-white);
+  font-size: 0.8em;
 }
 
 .you-text,
@@ -12,4 +13,8 @@
   flex: 1 0 auto;
   display: block;
   color: var(--theme-red);
+}
+
+.url-text {
+  color: var(--theme-yellow);
 }

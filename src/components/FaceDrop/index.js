@@ -3,7 +3,10 @@ import Dropzone from 'react-dropzone';
 import "./index.css";
 
 export default function Face(props) {
-  const bgStyle = { backgroundImage: `url(${props.previewURL})` }
+  let bgStyle;
+  if (props.previewURL) {
+    bgStyle = { backgroundImage: `url(${props.previewURL})` }
+  }
   return (
     <Dropzone
       className="face-drop"
@@ -12,6 +15,12 @@ export default function Face(props) {
       multiple={false}
       onDrop={(...args) => props.handleFaceChange.call(null, ...args, props.id)}
     >
+      {!props.previewURL && 
+        <div className="instructions">
+          <h3 className="clickHere"> click here</h3>
+          <h3> and upload </h3>
+          <h3 className="aFace"> a face </h3>
+        </div>}
     </Dropzone>
   );
 }

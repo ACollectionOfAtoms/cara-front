@@ -6,7 +6,6 @@ import {
 import Home from './views/Home'
 import Header from './components/Header'
 import Navbar from './components/Navbar'
-import Sidebar from './components/Sidebar'
 import Footer from './components/Footer'
 import CompareFaces from './views/CompareFaces'
 import './App.css';
@@ -25,7 +24,6 @@ class App extends Component {
                     <Route path="/compare-faces" component={CompareFaces}/>
                 </div>
             </main>
-            <Sidebar/>
             <Footer/>
           </div>
         </Router>

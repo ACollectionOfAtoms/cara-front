@@ -9,6 +9,8 @@ export default class CompareContainer extends React.Component {
     this.faceDropIdTwo = "two"
     this.state = {
       results: null,
+      fetching: false,
+      error: false,
       [this.faceDropIdOne]: {
         file: null,
         imgUrl: '',
@@ -38,29 +40,37 @@ export default class CompareContainer extends React.Component {
   }
 
   async uploadImages() {
-    const uploadUri = "http://acollectionofatoms.me/upload";
+    const uploadUri = "http://localhost:7777/upload";
     const form = new FormData();
     const files = [
       this.state[this.faceDropIdOne].file,
       this.state[this.faceDropIdTwo].file
     ]
     files.forEach((file, index) => {
-      console.log(file);
       form.append(`file-${index}`, file);
     });
     try {
+      this.setState({
+        fetching: true,
+      })
       const resp = await fetch(uploadUri, {
         method: 'POST',
         'Content-Type': 'multipart/form-data',
         body: form,
-      });
+      })
       let results = await resp.text();
-      console.log(results);
       results = Math.round(results, 2);
       this.setState({
         results
       })
+      this.setState({
+        fetching: false,
+      })
     } catch (err) {
+      this.setState({
+        fetching: false,
+        error: true,
+      })
       console.log(err);
     }
   }
@@ -69,11 +79,12 @@ export default class CompareContainer extends React.Component {
     const compareControlElement = () => {
       let el;
       if (this.state.results) {
-        el = (<h3> These faces are {this.state.results}% similar</h3>);
+        el = (<h1> These <span className="red-emph">faces</span> are <span className="green-emph">{this.state.results}% </span><span className="red-emph">similar!</span></h1>);
       } else if (this.state.fetching) {
-        el = (<h3>fetching results...</h3>);
+        el = (<h2> <span aria-label="man-fetching-results" role="img">🏃‍♂️</span> fetching results, brb real quick...</h2>);
       } else if (this.state.error) {
-        el = (<h3> there was an error! </h3>);
+        // TODO: add button to clear error state!
+        el = (<h2> there was an error! Refresh page plz <span aria-label="sad face" role="img">😫</span></h2>);
       } else {
         el = (
         <button
@@ -86,18 +97,25 @@ export default class CompareContainer extends React.Component {
 
     const faceObjOne = this.state[this.faceDropIdOne];
     const faceObjTwo = this.state[this.faceDropIdTwo];
+    const containerClass = this.state.fetching 
+                         ? "face-compare-container face-compare-container_fetching"
+                         : "face-compare-container";
     return (
-      <div>
-        <h1>Compare these faces</h1>
+      <div className={containerClass}>
+        <h1 className="page-title">are these faces similar??</h1>
         <div className="face-compare-zone">
-          <FaceDrop
-            id={this.faceDropIdOne}
-            previewURL={faceObjOne.imgUrl}
-            handleFaceChange={this.handleFaceChange} />
-          <FaceDrop
-            id={this.faceDropIdTwo}
-            previewURL={faceObjTwo.imgUrl}
-            handleFaceChange={this.handleFaceChange} />
+          <div className="face-drop-one">
+            <FaceDrop
+              id={this.faceDropIdOne}
+              previewURL={faceObjOne.imgUrl}
+              handleFaceChange={this.handleFaceChange} />
+          </div>
+          <div className="face-drop-two">
+            <FaceDrop
+              id={this.faceDropIdTwo}
+              previewURL={faceObjTwo.imgUrl}
+              handleFaceChange={this.handleFaceChange} />
+          </div>
           <div className="compare-control">
             {compareControlElement()}
           </div>

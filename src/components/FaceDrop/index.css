@@ -1,18 +1,26 @@
 .face-drop {
-  flex: 0 0 200px;
-  height: 200px;
+  width: 15em;
+  height: 15em;
   border-radius: 50%;
-  margin: 1em;
   border: 1px solid black;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .face-drop:hover {
   cursor: pointer;
 }
 
-.compare-control {
-  flex: 0 1 auto;
+.clickHere {
+  color: var(--theme-dark-blue);
+}
+
+.aFace {
+  color: var(--theme-red);
 }

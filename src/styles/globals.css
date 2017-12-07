@@ -17,12 +17,12 @@ body {
 
 @media  only screen and (max-width: 995px) {
   body {
-    font-size: 13px;
+    font-size: 14px;
   }
 }
 
-@media  only screen and (max-width: 690px) {
+@media  only screen and (max-width: 1440px) {
   body {
-    font-size: 14px;
+    font-size: 16px;
   }
 }

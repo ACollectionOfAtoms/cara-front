@@ -3,10 +3,10 @@
 
   grid-template-areas:
     "header header header"
-    "nav main side"
+    "nav main main"
     "footer footer footer";
   
-  grid-template-columns: 200px 1fr 200px;
+  grid-template-columns: 200px 1fr;
   grid-template-rows: auto 1fr auto;
   grid-gap: 10px;
 
@@ -24,11 +24,7 @@ nav {
 
 main {
   grid-area: main;
-}
-
-aside {
-  grid-area: side;
-  margin-right: 0.5rem;
+  margin-right: 0.5em;
 }
 
 footer {
@@ -41,7 +37,6 @@ footer {
       "header"
       "nav"
       "main"
-      "side"
       "footer";
 
     grid-template-columns: 1fr;
@@ -49,11 +44,10 @@ footer {
       auto /* Header */
       minmax(50px, auto) /* Nav */
       1fr /* Content */
-      minmax(75px, auto) /* Sidebar */
       auto; /* Footer */
   }
 
-  nav, aside {
+  nav {
     margin: 0;
   }
 }

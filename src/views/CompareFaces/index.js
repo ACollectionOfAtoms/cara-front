@@ -1,5 +1,6 @@
 import React from 'react';
 import FaceDrop from '../../components/FaceDrop'
+import Explanation from '../../components/Explanation'
 import "./index.css";
 
 export default class CompareContainer extends React.Component {
@@ -9,6 +10,7 @@ export default class CompareContainer extends React.Component {
     this.faceDropIdTwo = "two"
     this.state = {
       results: null,
+      comment: null,
       fetching: false,
       error: false,
       [this.faceDropIdOne]: {
@@ -20,8 +22,18 @@ export default class CompareContainer extends React.Component {
         imgUrl: '',
       }
     };
+    this.commentary = {
+      90: "If these aren't the same people, they must be twins! 😳",
+      80: "Are these the same people?! 😲",
+      75: "An uncanny resemblance! 😲",
+      70: "Whoa are you guys siblings? 🤗",
+      60: "Hm, not so similar 🤔 but there's something there! 😊",
+      50: "Quite different faces indeed! 😌",
+      40: "Such very different faces! 🙂",
+    }
     this.handleFaceChange = this.handleFaceChange.bind(this);
     this.uploadImages = this.uploadImages.bind(this);
+    this.reset = this.reset.bind(this);
   }
 
   handleFaceChange(acceptedFile, rejectedFile, _, id) {
@@ -37,6 +49,18 @@ export default class CompareContainer extends React.Component {
         imgUrl: imageUrl,
       }
     });
+  }
+
+  chooseComment(percentResult) {
+    let comment, commentKey, delta = Infinity;
+    Object.keys(this.commentary).forEach(percentage => {
+      const diff = Math.abs(percentResult - percentage);
+      if (diff < delta) {
+        commentKey = percentage;
+        delta = diff;
+      }
+    });
+    return this.commentary[commentKey];
   }
 
   async uploadImages() {
@@ -65,23 +89,47 @@ export default class CompareContainer extends React.Component {
       })
       this.setState({
         fetching: false,
+        comment: this.chooseComment(results)
       })
     } catch (err) {
       this.setState({
         fetching: false,
         error: true,
+        comment: null,
       })
-      console.log(err);
     }
+  }
+
+  reset() {
+    this.setState({
+      results: null,
+      comment: null,
+      fetching: false,
+      error: false,
+      [this.faceDropIdOne]: {
+        file: null,
+        imgUrl: '',
+      },
+      [this.faceDropIdTwo]: {
+        file: null,
+        imgUrl: '',
+      }
+    })
   }
 
   render() {
     const compareControlElement = () => {
       let el;
       if (this.state.results) {
-        el = (<h1> These <span className="red-emph">faces</span> are <span className="green-emph">{this.state.results}% </span><span className="red-emph">similar!</span></h1>);
+        el = (
+          <div className="results-container">
+            <h1 className="blue"> These <span className="red-emph">faces</span> are <span className="green-emph">{this.state.results}% </span><span className="red-emph">similar!</span></h1>
+            <h2> {this.state.comment} </h2>
+            <button onClick={this.reset}> Shall we start over? </button>
+          </div>
+        );
       } else if (this.state.fetching) {
-        el = (<h2> <span aria-label="man-fetching-results" role="img">🏃‍♂️</span> fetching results, brb real quick...</h2>);
+        el = (<h2 className="fetching-text"> <span aria-label="man-fetching-results" role="img">🏃‍♂️</span> fetching results, brb real quick...</h2>);
       } else if (this.state.error) {
         // TODO: add button to clear error state!
         el = (<h2> there was an error! Refresh page plz <span aria-label="sad face" role="img">😫</span></h2>);
@@ -120,6 +168,7 @@ export default class CompareContainer extends React.Component {
             {compareControlElement()}
           </div>
         </div>
+        <h3> NOTE: for best results provide clear photos of faces with good lighting 💡</h3>
       </div>
     );
   }

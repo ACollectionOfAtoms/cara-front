@@ -49,6 +49,10 @@
   color: var(--theme-red);
 }
 
+.blue {
+  color: var(--theme-dark-blue);
+}
+
 .green-emph {
   color: var(--theme-green);
 }
@@ -60,6 +64,12 @@
   padding: 1em 0;
 }
 
+.compare-control .results-container {
+  display: flex;
+  flex-flow: column nowrap;
+  text-align: center;
+}
+
 .compare-control button {
   background-color: var(--theme-dark-blue);
   color: var(--theme-yellow);
@@ -67,11 +77,16 @@
   outline: none;
   font-size: 2em;
   border: none;
+  padding: 0.3em;;
+}
+
+.fetching-text {
+  color: var(--theme-white);
 }
 
 .compare-control button:hover {
   cursor: pointer;
-  animation: switch-box-shadow 1s linear infinite;
+  animation: switch-box-shadow 1s linear infinite, colorSwap 1s linear infinite;
 }
 
 @keyframes switch-box-shadow {
@@ -83,5 +98,17 @@
   }
   100% {
     box-shadow: -0.2em 0.1em 0px 0.07em var(--theme-red);
+  }
+}
+
+@keyframes colorSwap {
+  0% {
+    color: var(--theme-yellow);
+  }
+  50% {
+    color: var(--theme-red);
+  }
+  100% {
+    color: var(--theme-yellow);
   }
 }

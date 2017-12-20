@@ -64,8 +64,8 @@ export default class CompareContainer extends React.Component {
   }
 
   async uploadImages() {
-    const uploadUri = "http://localhost:7777/upload";
-    const form = new FormData();
+    const uploadUri = `${process.env.REACT_APP_FACE_COMPARE_SERVER}/upload`
+    const form = new FormData()
     const files = [
       this.state[this.faceDropIdOne].file,
       this.state[this.faceDropIdTwo].file

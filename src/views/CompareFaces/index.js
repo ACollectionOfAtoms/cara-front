@@ -168,7 +168,9 @@ export default class CompareContainer extends React.Component {
             {compareControlElement()}
           </div>
         </div>
-        <h3> NOTE: for best results provide clear photos of faces with good lighting 💡</h3>
+        <div className="note">
+          <h3> NOTE: for best results provide clear photos of faces with good lighting 💡</h3>
+        </div>
       </div>
     );
   }

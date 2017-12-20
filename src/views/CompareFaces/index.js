@@ -133,7 +133,7 @@ export default class CompareContainer extends React.Component {
     );
     const compareControlElement = () => {
       let el;
-      if (this.state.results) {
+      if (this.state.results && !this.state.error) {
         el = (
           <div className="results-container">
             <h1 className="blue"> These <span className="red-emph">faces</span> are <span className="green-emph">{this.state.results}% </span><span className="red-emph">similar!</span></h1>
@@ -146,7 +146,7 @@ export default class CompareContainer extends React.Component {
       } else if (this.state.error) {
         el = (
           <div>
-            <h2> there was an error!<span aria-label="sad face" role="img">😫</span></h2>
+            <h2> There was an error!<span aria-label="sad face" role="img">😫</span></h2>
             {resetButton}
           </div>
         );

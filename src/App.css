@@ -45,6 +45,11 @@ footer {
       minmax(50px, auto) /* Nav */
       1fr /* Content */
       auto; /* Footer */
+    grid-gap: 0;
+  }
+
+  main {
+    margin: 0;
   }
 
   nav {

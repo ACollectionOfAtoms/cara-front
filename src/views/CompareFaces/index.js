@@ -146,7 +146,7 @@ export default class CompareContainer extends React.Component {
       } else if (this.state.error) {
         el = (
           <div>
-            <h2> There was an error!<span aria-label="sad face" role="img">😫</span></h2>
+            <h2 style={{textAlign: 'center'}}> There was an error!<span aria-label="sad face" role="img">😫</span></h2>
             {resetButton}
           </div>
         );

@@ -30,8 +30,8 @@ export default class CompareContainer extends React.Component {
       50: "Quite different faces indeed! 😌",
       40: "Such very different faces! 🙂",
       9001: "There was error loading the image! Try again? Try a different image?",
-      9002: "Darn, that image won't work for me. Can we try a differnt one? Also, Ensure faces are VERTICAL!",
-      9003: "Oh boy! Something went wrong... refresh and try again?",
+      9002: "Couln't find two faces! 🤖 My Robot ways fail me. Try different images?",
+      9003: "Oh boy! Something went wrong... tell Adam he's a bad programmer",
     }
     this.handleFaceChange = this.handleFaceChange.bind(this);
     this.uploadImages = this.uploadImages.bind(this);

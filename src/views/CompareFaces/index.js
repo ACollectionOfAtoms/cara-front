@@ -1,6 +1,5 @@
 import React from 'react';
 import FaceDrop from '../../components/FaceDrop'
-import Explanation from '../../components/Explanation'
 import "./index.css";
 
 export default class CompareContainer extends React.Component {
@@ -52,7 +51,7 @@ export default class CompareContainer extends React.Component {
   }
 
   chooseComment(percentResult) {
-    let comment, commentKey, delta = Infinity;
+    let commentKey, delta = Infinity;
     Object.keys(this.commentary).forEach(percentage => {
       const diff = Math.abs(percentResult - percentage);
       if (diff < delta) {
@@ -129,7 +128,7 @@ export default class CompareContainer extends React.Component {
           </div>
         );
       } else if (this.state.fetching) {
-        el = (<h2 className="fetching-text"> <span aria-label="man-fetching-results" role="img">🏃‍♂️</span> fetching results, brb real quick...</h2>);
+        el = (<h2 className="fetching-text"> <span aria-label="man fetching results" role="img">🏃‍♂️</span> fetching results, brb real quick...</h2>);
       } else if (this.state.error) {
         // TODO: add button to clear error state!
         el = (<h2> there was an error! Refresh page plz <span aria-label="sad face" role="img">😫</span></h2>);
@@ -169,7 +168,7 @@ export default class CompareContainer extends React.Component {
           </div>
         </div>
         <div className="note">
-          <h3> NOTE: for best results provide clear photos of faces with good lighting 💡</h3>
+          <h3> NOTE: for best results provide clear photos of faces with good lighting <span role="img" aria-label="emoji of lightbulb">💡</span></h3>
         </div>
       </div>
     );

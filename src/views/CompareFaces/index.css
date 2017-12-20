@@ -81,6 +81,7 @@
 
 .fetching-text {
   color: var(--theme-white);
+  text-align: center;
 }
 
 .compare-control button:hover {

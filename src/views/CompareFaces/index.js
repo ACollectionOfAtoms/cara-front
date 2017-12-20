@@ -30,7 +30,7 @@ export default class CompareContainer extends React.Component {
       50: "Quite different faces indeed! 😌",
       40: "Such very different faces! 🙂",
       9001: "There was error loading the image! Try again? Try a different image?",
-      9002: "Darn, that image won't work for me. Can we try a differnt one?",
+      9002: "Darn, that image won't work for me. Can we try a differnt one? Also, Ensure faces are VERTICAL!",
       9003: "Oh boy! Something went wrong... refresh and try again?",
     }
     this.handleFaceChange = this.handleFaceChange.bind(this);
@@ -72,6 +72,7 @@ export default class CompareContainer extends React.Component {
       this.state[this.faceDropIdOne].file,
       this.state[this.faceDropIdTwo].file
     ]
+    let error = false;
     files.forEach((file, index) => {
       form.append(`file-${index}`, file);
     });
@@ -86,18 +87,25 @@ export default class CompareContainer extends React.Component {
       })
       let results = await resp.text();
       results = Math.round(results, 2);
+      // TODO: Clean this up!
+
+      // server returned an error code. NOT GROOVY
+      if (results > 100) {
+        error = true;
+      }
       this.setState({
-        results
-      })
-      this.setState({
+        results,
         fetching: false,
-        comment: this.chooseComment(results)
+        comment: this.chooseComment(results), // if result is error code, correct commentary is provided
+        error, // hopefully this is false and so all is GROOVY
       })
     } catch (err) {
+      error = true;
+      // nothing is groovy, all is terrible.
       this.setState({
         fetching: false,
-        error: true,
         comment: null,
+        error,
       })
     }
   }
@@ -120,6 +128,9 @@ export default class CompareContainer extends React.Component {
   }
 
   render() {
+    const resetButton = (
+      <button onClick={this.reset}> Shall We Try Again? </button>
+    );
     const compareControlElement = () => {
       let el;
       if (this.state.results) {
@@ -127,14 +138,18 @@ export default class CompareContainer extends React.Component {
           <div className="results-container">
             <h1 className="blue"> These <span className="red-emph">faces</span> are <span className="green-emph">{this.state.results}% </span><span className="red-emph">similar!</span></h1>
             <h2> {this.state.comment} </h2>
-            <button onClick={this.reset}> Shall we start over? </button>
+            {resetButton} 
           </div>
         );
       } else if (this.state.fetching) {
         el = (<h2 className="fetching-text"> <span aria-label="man fetching results" role="img">🏃‍♂️</span> fetching results, brb real quick...</h2>);
       } else if (this.state.error) {
-        // TODO: add button to clear error state!
-        el = (<h2> there was an error! Refresh page plz <span aria-label="sad face" role="img">😫</span></h2>);
+        el = (
+          <div>
+            <h2> there was an error!<span aria-label="sad face" role="img">😫</span></h2>
+            {resetButton}
+          </div>
+        );
       } else {
         el = (
         <button

@@ -51,3 +51,9 @@ footer {
     margin: 0;
   }
 }
+
+@media (min-width: 1440px) {
+  .App {
+    margin: 0 20%;
+  }
+}

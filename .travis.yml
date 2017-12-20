@@ -1,9 +1,18 @@
 language: node_js
 node_js:
-  - "stable"
+- stable
 cache:
   directories:
   - node_modules
 script:
-  # - npm test tsk tsk where dem test at boii????
-  - npm run build
+- npm run build
+deploy:
+  provider: s3
+  access_key_id: AKIAIY5XLROTPN5TVS3Q
+  secret_access_key:
+    secure: vQA1gpP4vkRRu+iUHLHPwh61SRewD/KRwCzJYFtYeKXlAByDHvuP02vplHFPVuA52UWdhu6NJpE3AYJ7MmxVfWM6l+IzRbyG37fRHrIZqgH2ITGmb7rCouk1kfxf/ztw0QektSFYvhYLWf3TWNw4oHNxR55lJ/DjLFGWo4T/+HEacsgUY3MU3koEZDTuKLSJdkooJKREGI+iEd6hzbOMEz95fGJZCfA99Qqv1sRepjEhxGoTNcvKF6vXn5UvFilMUd2TYFvXVSbNcfNnpxfsmasg1x5xSgLjXvrbCN5F0YuZKa0WxvgPgN2JUWJczG3fptFFAlER2+Gi7RlT+YhwXN/ehov3zj6fEoVVP7N4nuL4Jx78E7bWvsIrkAawWfTpDvjHpwy8Z07zUrKqUlmVM+NbF2iq2EeA2icDt2S4Lc4vCuYbddM5PTls2OqQV9s8WRW2IuhRpVzBgcd1sgu60thHvqlbMEZAaDVAAf/up7Hw3lcD314eOs4zdZIPh11SfMD23r6npV8ZxLKKVpZVv9G3OPWPZCuRuG5dzpudtMVR+R/RsDNOpnDyTDI6xzYQHWuR27iXtqEMoH3XaJQiwcuLiPwYlZJfhiYVxFHGlGT1I9jGhBKPJpIck/IWg37Sd1pYrSFqxzqSQwxK5cKfQHzQ92XXjt4nrMB2rw7oDec=
+  bucket: www.aretheyalike.com
+  local-dir: build
+  acl: public_read
+  on:
+    repo: ACollectionOfAtoms/cara-front

@@ -90,7 +90,7 @@ export default class CompareContainer extends React.Component {
       // TODO: Clean this up!
 
       // server returned an error code. NOT GROOVY
-      if (results > 100) {
+      if (results > 100 || Number.isNaN(parseInt(results, 10))) {
         error = true;
       }
       this.setState({

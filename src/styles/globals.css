@@ -9,20 +9,20 @@ body {
   font-size: 12px;
 }
 
-@media  only screen and (max-width: 690px) {
+@media  only screen and (min-width: 690px) {
   body {
     font-size: 12px;
   }
 }
 
-@media  only screen and (max-width: 995px) {
+@media  only screen and (min-width: 995px) {
   body {
     font-size: 14px;
   }
 }
 
-@media  only screen and (max-width: 1440px) {
+@media  only screen and (min-width: 1440px) {
   body {
-    font-size: 16px;
+    font-size: 20px;
   }
 }

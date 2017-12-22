@@ -26,6 +26,7 @@ class AlikeCard extends React.Component {
   }
 
   render() {
+    // TODO: Use this for a fancy animation of sorts
     const captionArray = this.props.caption.split(" ")
 
     return (

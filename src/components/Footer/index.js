@@ -9,7 +9,7 @@ export default () => (
       <span className="you-text"> you.</span>
     </p>
     <p>
-      All rights reserved.
+      2018 All rights reserved.
     </p>
   </footer>
 )
